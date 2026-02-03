@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en" init-page-loader>
+
+<head>
+   <meta charset="UTF-8" />
+   <style>
+      /* Миттєвий фон для всього вікна */
+      html {
+         background-color: #fff;
+      }
+
+      /* Ховаємо контент, поки немає статусу "ready" */
+      html[init-page-loader] body {
+         opacity: 0 !important;
+         visibility: hidden !important;
+         overflow: hidden;
+         /* Блокуємо скрол під час завантаження */
+      }
+
+      /* Повертаємо видимість та скрол */
+      html[init-page-loader="ready"] body {
+         opacity: 1 !important;
+         visibility: visible !important;
+         overflow: visible;
+         transition: opacity 0.6s ease-in-out !important;
+      }
+
+      /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
+      #loader-progress-bar {
+         position: fixed;
+         top: 0;
+         left: 0;
+         height: 2px;
+         background-color: #00ADB5;
+         z-index: 100000;
+         width: 0%;
+         transition: width 0.4s ease, opacity 0.3s ease;
+         box-shadow: 0 0 10px #0C73B8;
+      }
+   </style>
+   <link rel="icon" type="image/svg+xml" href="/vine-rouge/favicon.ico" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+   <title>Vine Rouge</title>
+  <script type="module" crossorigin src="/vine-rouge/assets/main.8a922102.js"></script>
+  <link rel="stylesheet" href="/vine-rouge/assets/index.6394281e.css">
+</head>
+
+<body>
+
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__container header__container--1440">
+            <div class="header__inner">
+               <figure class="header__logo logo">
+                  <a href="#" class="logo__link">
+                     <svg class="logo__icon">
+                        <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-logo-tree"></use>
+                     </svg>
+                  </a>
+                  <img class="logo__text" src="/vine-rouge/assets/logo-text.a55ab730.svg" alt="text logo">
+               </figure>
+               <nav class="header__menu menu-header">
+                  <ul class="menu-header__list">
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Home</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Shop</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Events</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Blog</a>
+                     </li>
+                  </ul>
+               </nav>
+               <div class="header__actions actions-header">
+                  <button class="actions-header__button actions-header__button--icon-user"></button>
+                  <button class="actions-header__button actions-header__button--icon-shop-cart"></button>
+                  <div class="actions-header__burger">
+                     <button class="icon-menu">
+                        <span></span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <main class="page">
+         <section class="page__hero hero">
+            <div class="hero__container">
+               <div class="hero__content content-hero">
+                  <div class="content-hero__label">WINEMAKING TRADITION</div>
+                  <h1 class="content-hero__title">Wines from all over the world</h1>
+                  <div class="content-hero__text">
+                     <p>Nunc morbi purus purus nisl, amet. Non eleifend aliquam nibh ultrices platea platea enim tellus,
+                        tincid.
+                     </p>
+                  </div>
+                  <a href="#" class="content-hero__link">SEE HOW IT MADE</a>
+               </div>
+               <div class="hero__image">
+                  <img src="/vine-rouge/assets/hero-img.e0cb765a.webp" alt="hero image">
+               </div>
+            </div>
+         </section>
+
+         <div class="page__navigation navigation">
+            <div class="navigation__container">
+               <article class="item-navigation">
+                  <a href="#" class="item-navigation__inner">
+                     <div class="item-navigation__number">01.</div>
+                     <div class="item-navigation__content">
+                        <h4 class="item-navigation__title">VINEYARD</h4>
+                        <div class="item-navigation__text">
+                           <p>Visit and take a tour</p>
+                        </div>
+                     </div>
+                  </a>
+               </article>
+               <article class="item-navigation">
+                  <a href="#" class="item-navigation__inner">
+                     <div class="item-navigation__number">02.</div>
+                     <div class="item-navigation__content">
+                        <h4 class="item-navigation__title">PRODUCT</h4>
+                        <div class="item-navigation__text">
+                           <p>Old family recipes</p>
+                        </div>
+                     </div>
+                  </a>
+               </article>
+               <article class="item-navigation">
+                  <a href="#" class="item-navigation__inner">
+                     <div class="item-navigation__number">03.</div>
+                     <div class="item-navigation__content">
+                        <h4 class="item-navigation__title">HISTORY</h4>
+                        <div class="item-navigation__text">
+                           <p>Meet a tradition that lasts</p>
+                        </div>
+                     </div>
+                  </a>
+               </article>
+            </div>
+         </div>
+
+         <section class="page__history history">
+            <div class="history__container">
+               <div class="history__content content-history">
+                  <div class="content-history__header header-block">
+                     <span class="header-block__label">Augue sed nec</span>
+                     <h2 class="header-block__title">OUR HISTOrY</h2>
+                     <div class="header-block__text">
+                        <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus dui vitae tellus
+                           et mi.
+                           Ut augue mattis
+                           augue dui et amet. Fringilla vestibulum dui, condimentum tristique duis.
+                        </p>
+                        <p>Phasellus ut sem montes, aliquam morbi accumsan nam aenean. Augue ut congue tincidunt eget
+                           commodo,
+                           tincidunt viverra.
+                        </p>
+                     </div>
+                     <button class="content-history__button button">SEE MORE</button>
+                  </div>
+               </div>
+               <div class="history__image image-history">
+                  <div class="image-history__wrap">
+                     <img class="image-history__img" src="/vine-rouge/assets/history-img-big.1823633f.webp"
+                        alt="history section image">
+                     <span class="image-history__year">1945</span>
+                  </div>
+                  <div class="image-history__label">Ut augue mattis augue dui et amet</div>
+               </div>
+            </div>
+         </section>
+
+         <div class="page__advantages advantages">
+            <div class="advantages__container">
+               <div class="advantages__items">
+                  <a href="#" class="item-advantages item-advantages--wine">
+                     <div class="item-advantages__content">
+                        <div class="item-advantages__label">LOREMIS</div>
+                        <h4 class="item-advantages__title">WINE GLASS</h4>
+                        <div class="item-advantages__text">
+                           <p>Lorem ipsum malesu.</p>
+                        </div>
+                     </div>
+                  </a>
+                  <a href="#" class="item-advantages item-advantages--tasting">
+                     <div class="item-advantages__content">
+                        <div class="item-advantages__label">LOREMIS</div>
+                        <h4 class="item-advantages__title">TASTING DAY</h4>
+                        <div class="item-advantages__text">
+                           <p>Lorem ipsum malesu.</p>
+                        </div>
+                     </div>
+                  </a>
+                  <a href="#" class="item-advantages item-advantages--harvest">
+                     <div class="item-advantages__content">
+                        <div class="item-advantages__label">LOREMIS</div>
+                        <h4 class="item-advantages__title">BEST HARVEST</h4>
+                        <div class="item-advantages__text">
+                           <p>Lorem ipsum malesu.</p>
+                        </div>
+                     </div>
+                  </a>
+                  <a href="#" class="item-advantages item-advantages--package">
+                     <div class="item-advantages__content">
+                        <div class="item-advantages__label">LOREMIS</div>
+                        <h4 class="item-advantages__title">OUR PACKAGE</h4>
+                        <div class="item-advantages__text">
+                           <p>Lorem ipsum malesu.</p>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="advantages__banner">
+                  <img src="/vine-rouge/assets/banner-img-01.37d6998f.webp" alt="banner image">
+                  <div class="banner__signature signature">
+                     <h4 class="signature__title">WINEMAKING</h4>
+                     <div class="signature__text">
+                        <p>Lorem ipsum malesu.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <section class="page__spirits spirits">
+            <div class="spirits__container">
+               <div class="spirits__header header-block header-block--centered">
+                  <span class="header-block__label">Augue sed nec</span>
+                  <h2 class="header-block__title">OuR BEST SPIRIT</h2>
+                  <div class="header-block__text">
+                     <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus dui vitae tellus et
+                        mi.
+                     </p>
+                  </div>
+               </div>
+
+               <div class="spirits__body">
+                  <!-- Slider main container -->
+                  <div class="spirits__slider slider-spirit swiper">
+                     <!-- Additional required wrapper -->
+                     <div class="swiper-wrapper">
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                           <article class="item-cart">
+                              <div class="item-cart__image">
+                                 <img src="/vine-rouge/assets/spirit-img-01.2c7fc047.webp" alt="">
+                              </div>
+                              <div class="item-cart__inner">
+                                 <div class="item-cart__top">
+                                    <h4 class="item-cart__title">
+                                       <a href="#" class="item-cart__link">LUCTUSON <br>
+                                          CHARDONNAY</a>
+                                    </h4>
+                                    <span class="item-cart__text">Lorem ipsum malesu.</span>
+                                 </div>
+                                 <div class="item-cart__body body-cart">
+                                    <div class="body-cart__labels">
+                                       <span class="body-cart__label">IN STOCK</span>
+                                       <span class="body-cart__price">99.00$</span>
+                                    </div>
+                                    <div class="body-cart__actions item-actions-card">
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-favorite"></button>
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-shop-cart"></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </article>
+                        </div>
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                           <article class="item-cart">
+                              <div class="item-cart__image">
+                                 <img src="/vine-rouge/assets/spirit-img-02.0ee685a3.webp" alt="">
+                              </div>
+                              <div class="item-cart__inner">
+                                 <div class="item-cart__top">
+                                    <h4 class="item-cart__title">
+                                       <a href="#" class="item-cart__link">LUCTUSON <br>
+                                          CHARDONNAY</a>
+                                    </h4>
+                                    <span class="item-cart__text">Lorem ipsum malesu.</span>
+                                 </div>
+                                 <div class="item-cart__body body-cart">
+                                    <div class="body-cart__labels">
+                                       <span class="body-cart__label">IN STOCK</span>
+                                       <span class="body-cart__price">99.00$</span>
+                                    </div>
+                                    <div class="body-cart__actions item-actions-card">
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-favorite"></button>
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-shop-cart"></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </article>
+                        </div>
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                           <article class="item-cart">
+                              <div class="item-cart__image">
+                                 <img src="/vine-rouge/assets/spirit-img-03.0b2036c4.webp" alt="">
+                              </div>
+                              <div class="item-cart__inner">
+                                 <div class="item-cart__top">
+                                    <h4 class="item-cart__title">
+                                       <a href="#" class="item-cart__link">LUCTUSON <br>
+                                          CHARDONNAY</a>
+                                    </h4>
+                                    <span class="item-cart__text">Lorem ipsum malesu.</span>
+                                 </div>
+                                 <div class="item-cart__body body-cart">
+                                    <div class="body-cart__labels">
+                                       <span class="body-cart__label">IN STOCK</span>
+                                       <span class="body-cart__price">99.00$</span>
+                                    </div>
+                                    <div class="body-cart__actions item-actions-card">
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-favorite"></button>
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-shop-cart"></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </article>
+                        </div>
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                           <article class="item-cart">
+                              <div class="item-cart__image">
+                                 <img src="/vine-rouge/assets/spirit-img-03.0b2036c4.webp" alt="">
+                              </div>
+                              <div class="item-cart__inner">
+                                 <div class="item-cart__top">
+                                    <h4 class="item-cart__title">
+                                       <a href="#" class="item-cart__link">LUCTUSON <br>
+                                          CHARDONNAY</a>
+                                    </h4>
+                                    <span class="item-cart__text">Lorem ipsum malesu.</span>
+                                 </div>
+                                 <div class="item-cart__body body-cart">
+                                    <div class="body-cart__labels">
+                                       <span class="body-cart__label">IN STOCK</span>
+                                       <span class="body-cart__price">99.00$</span>
+                                    </div>
+                                    <div class="body-cart__actions item-actions-card">
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-favorite"></button>
+                                       <button
+                                          class="item-actions-card__btn item-actions-card__btn--icon-shop-cart"></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </article>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="spirits__pagination pagination">
+                     <!-- If we need pagination -->
+                     <!-- <div class="pagination-spirit swiper-pagination"></div> -->
+
+                     <!-- If we need navigation buttons -->
+                     <button class="button-arrow swiper-btn-next button-arrow--icon-chevron"></button>
+                     <button
+                        class="button-arrow swiper-btn-prev button-arrow--rigth button-arrow--icon-chevron"></button>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <div class="page__reviews reviews">
+            <div class="reviews__wrapper">
+               <div class="reviews__container">
+                  <!-- If we need navigation buttons -->
+                  <button class="button-arrow button-arrow--icon-chevron button-arrow--prev"></button>
+                  <!-- Slider main container -->
+                  <div class="reviews__slider slider-review swiper">
+                     <!-- Additional required wrapper -->
+                     <div class="slider-review__wrapper swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="slider-review__slide swiper-slide">
+                           <article class="item-review">
+                              <div class="item-review__wrap">
+                                 <div class="item-review__icon item-review__icon--icon-quotes"></div>
+                                 <blockquote class="item-review__content">
+                                    <div class="item-review__text">
+                                       <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus
+                                          dui
+                                          vitae
+                                          tellus et mi. Ut augue mattis
+                                          augue dui et amet.
+                                       </p>
+                                    </div>
+                                    <div class="item-review__bottom bottom-review">
+                                       <cite class="bottom-review__author">VINCENT FROST</cite>
+                                       <div class="bottom-review__text">
+                                          <p>Lorem ipsum malesu.</p>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                              <div class="item-review__image">
+                                 <div class="item-review__decor"></div>
+                                 <img src="/vine-rouge/assets/review-author-img.9d179792.webp" alt="">
+                              </div>
+                           </article>
+                        </div>
+                        <div class="slider-review__slide swiper-slide">
+                           <article class="item-review">
+                              <div class="item-review__wrap">
+                                 <div class="item-review__icon item-review__icon--icon-quotes"></div>
+                                 <blockquote class="item-review__content">
+                                    <div class="item-review__text">
+                                       <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus
+                                          dui
+                                          vitae
+                                          tellus et mi. Ut augue mattis
+                                          augue dui et amet.
+                                       </p>
+                                    </div>
+                                    <div class="item-review__bottom bottom-review">
+                                       <cite class="bottom-review__author">VINCENT FROST</cite>
+                                       <div class="bottom-review__text">
+                                          <p>Lorem ipsum malesu.</p>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                              <div class="item-review__image">
+                                 <div class="item-review__decor"></div>
+                                 <img src="/vine-rouge/assets/review-author-img.9d179792.webp" alt="">
+                              </div>
+                           </article>
+                        </div>
+                        <div class="slider-review__slide swiper-slide">
+                           <article class="item-review">
+                              <div class="item-review__wrap">
+                                 <div class="item-review__icon item-review__icon--icon-quotes"></div>
+                                 <blockquote class="item-review__content">
+                                    <div class="item-review__text">
+                                       <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus
+                                          dui
+                                          vitae
+                                          tellus et mi. Ut augue mattis
+                                          augue dui et amet.
+                                       </p>
+                                    </div>
+                                    <div class="item-review__bottom bottom-review">
+                                       <cite class="bottom-review__author">VINCENT FROST</cite>
+                                       <div class="bottom-review__text">
+                                          <p>Lorem ipsum malesu.</p>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                              <div class="item-review__image">
+                                 <div class="item-review__decor"></div>
+                                 <img src="/vine-rouge/assets/review-author-img.9d179792.webp" alt="">
+                              </div>
+                           </article>
+                        </div>
+                     </div>
+                     <!-- If we need pagination -->
+                     <div class="slider-review__pagination swiper-pagination"></div>
+                  </div>
+                  <!-- If we need navigation buttons -->
+                  <button
+                     class="button-arrow button-arrow--rigth button-arrow--next button-arrow--icon-chevron"></button>
+               </div>
+            </div>
+         </div>
+
+         <section class="page__auroma auroma">
+            <div class="auroma__container">
+               <div class="auroma__header header-block header-block--centered">
+                  <span class="header-block__label">Augue sed nec</span>
+                  <h2 class="header-block__title">OUR HISTOrY</h2>
+               </div>
+               <div class="auroma__gallery gallery-grid">
+                  <img src="/vine-rouge/assets/gallery-img-01.fe11bf36.webp" alt="gallery image"
+                     class="gallery-grid__image">
+                  <img src="/vine-rouge/assets/gallery-img-02.fcfc90fe.webp" alt="gallery image"
+                     class="gallery-grid__image">
+                  <img src="/vine-rouge/assets/gallery-img-03.d625769e.webp" alt="gallery image"
+                     class="gallery-grid__image">
+                  <img src="/vine-rouge/assets/gallery-img-04.85a389e4.webp" alt="gallery image"
+                     class="gallery-grid__image">
+                  <img src="/vine-rouge/assets/gallery-img-05.e5ca2b31.webp" alt="gallery image"
+                     class="gallery-grid__image">
+                  <img src="/vine-rouge/assets/gallery-img-06.4e7ed1d9.webp" alt="gallery image"
+                     class="gallery-grid__image">
+               </div>
+               <div class="auroma__history history-auroma">
+                  <div class="history-auroma__items">
+                     <a href="#" class="item-history-adv">
+                        <figure class="item-history-adv__img img-advantages">
+                           <svg class="img-advantages__icon img-advantages__icon--wine">
+                              <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-history-i-01"></use>
+                           </svg>
+                        </figure>
+                        <figcaption class="item-history-adv__content">
+                           <h3 class="item-history-adv__title">WINE GLASS</h3>
+                           <div class="item-history-adv__text">
+                              <p>Lorem ipsum malesu.</p>
+                           </div>
+                        </figcaption>
+                     </a>
+                     <a href="#" class="item-history-adv">
+                        <figure class="item-history-adv__img img-advantages">
+                           <svg class="img-advantages__icon img-advantages__icon--wine">
+                              <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-history-i-02"></use>
+                           </svg>
+                        </figure>
+                        <figcaption class="item-history-adv__content">
+                           <h3 class="item-history-adv__title">FINE SMELL</h3>
+                           <div class="item-history-adv__text">
+                              <p>Lorem ipsum malesu.</p>
+                           </div>
+                        </figcaption>
+                     </a>
+                     <a href="#" class="item-history-adv">
+                        <figure class="item-history-adv__img img-advantages">
+                           <svg class="img-advantages__icon img-advantages__icon--wine">
+                              <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-history-i-03"></use>
+                           </svg>
+                        </figure>
+                        <figcaption class="item-history-adv__content">
+                           <h3 class="item-history-adv__title">UNIQUE SORT</h3>
+                           <div class="item-history-adv__text">
+                              <p>Lorem ipsum malesu.</p>
+                           </div>
+                        </figcaption>
+                     </a>
+                     <a href="#" class="item-history-adv">
+                        <figure class="item-history-adv__img img-advantages">
+                           <svg class="img-advantages__icon img-advantages__icon--wine">
+                              <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-history-i-04"></use>
+                           </svg>
+                        </figure>
+                        <figcaption class="item-history-adv__content">
+                           <h3 class="item-history-adv__title">OLD HABIT</h3>
+                           <div class="item-history-adv__text">
+                              <p>Lorem ipsum malesu.</p>
+                           </div>
+                        </figcaption>
+                     </a>
+                  </div>
+                  <div class="history-auroma__header header-block header-block--small">
+                     <h2 class="header-block__title">OUR HISTOrY</h2>
+                     <div class="header-block__text">
+                        <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus dui vitae tellus
+                           et mi. Ut augue mattis
+                           augue dui et amet. Fringilla vestibulum dui
+                        </p>
+                     </div>
+                     <button class="button">SEE MORE</button>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <div class="page__banner banner">
+            <div class="banner__container">
+               <div class="banner__image">
+                  <img src="/vine-rouge/assets/banner-02.a48574f3.webp" alt="banner image">
+                  <div class="banner__signature signature">
+                     <h4 class="signature__title">OUR VINEYARD</h4>
+                     <div class="signature__text">
+                        <p>Lorem ipsum malesu.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <section class="page__employees employees">
+            <div class="employees__container">
+               <div class="employees__header header-block header-block--centered">
+                  <span class="header-block__label">Augue sed nec</span>
+                  <h2 class="header-block__title">OuR BEST SPIRIT</h2>
+               </div>
+               <div class="employees__items">
+                  <article class="item-employee">
+                     <div class="item-employee__inner">
+                        <a href="#" class="item-employee__image">
+                           <img src="/vine-rouge/assets/employee-img-01.a1317724.webp" alt="employee image">
+                        </a>
+                        <div class="item-employee__content content-employee">
+                           <div class="content-employee__header header-employee">
+                              <h3 class="header-employee__title"><a href="#" class="header-employee__link">ANTIA
+                                    CAVACO
+                                 </a>
+                              </h3>
+                              <span class="header-employee__label">Lorem ipsum malesu.</span>
+                           </div>
+                           <div class="content-employee__body body-employee">
+                              <div class="body-employee__text">
+                                 <p>Ada euismod augue posuere venenatisim Maecenas faucibus dui vitae tellus et mi. Ut
+                                    augue
+                                    mattis
+                                 </p>
+                              </div>
+                              <div class="body-employee__social social-media">
+                                 <a href="#" class="social-media__link social-media__link--icon-fb"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-twitter"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-linked"></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-employee">
+                     <div class="item-employee__inner">
+                        <a href="#" class="item-employee__image">
+                           <img src="/vine-rouge/assets/employee-img-02.88af60f8.webp" alt="employee image">
+                        </a>
+                        <div class="item-employee__content content-employee">
+                           <div class="content-employee__header header-employee">
+                              <h3 class="header-employee__title"><a href="#" class="header-employee__link">AMIRO
+                                    SIVESTRE
+                                 </a>
+                              </h3>
+                              <span class="header-employee__label">Lorem ipsum malesu.</span>
+                           </div>
+                           <div class="content-employee__body body-employee">
+                              <div class="body-employee__text">
+                                 <p>Ada euismod augue posuere venenatisim Maecenas faucibus dui vitae tellus et mi. Ut
+                                    augue
+                                    mattis
+                                 </p>
+                              </div>
+                              <div class="body-employee__social social-media">
+                                 <a href="#" class="social-media__link social-media__link--icon-fb"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-twitter"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-linked"></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-employee">
+                     <div class="item-employee__inner">
+                        <a href="#" class="item-employee__image">
+                           <img src="/vine-rouge/assets/employee-img-03.c6aa19af.webp" alt="employee image">
+                        </a>
+                        <div class="item-employee__content content-employee">
+                           <div class="content-employee__header header-employee">
+                              <h3 class="header-employee__title"><a href="#" class="header-employee__link">BRANCA
+                                    ALVA
+                                 </a>
+                              </h3>
+                              <span class="header-employee__label">Lorem ipsum malesu.</span>
+                           </div>
+                           <div class="content-employee__body body-employee">
+                              <div class="body-employee__text">
+                                 <p>Ada euismod augue posuere venenatisim Maecenas faucibus dui vitae tellus et mi. Ut
+                                    augue
+                                    mattis
+                                 </p>
+                              </div>
+                              <div class="body-employee__social social-media">
+                                 <a href="#" class="social-media__link social-media__link--icon-fb"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-twitter"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-linked"></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-employee">
+                     <div class="item-employee__inner">
+                        <a href="#" class="item-employee__image">
+                           <img src="/vine-rouge/assets/employee-img-04.be89b19b.webp" alt="employee image">
+                        </a>
+                        <div class="item-employee__content content-employee">
+                           <div class="content-employee__header header-employee">
+                              <h3 class="header-employee__title"><a href="#" class="header-employee__link">VALETIN
+                                    EATON
+                                 </a>
+                              </h3>
+                              <span class="header-employee__label">Lorem ipsum malesu.</span>
+                           </div>
+                           <div class="content-employee__body body-employee">
+                              <div class="body-employee__text">
+                                 <p>Ada euismod augue posuere venenatisim Maecenas faucibus dui vitae tellus et mi. Ut
+                                    augue
+                                    mattis
+                                 </p>
+                              </div>
+                              <div class="body-employee__social social-media">
+                                 <a href="#" class="social-media__link social-media__link--icon-fb"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-twitter"></a>
+                                 <a href="#" class="social-media__link social-media__link--icon-linked"></a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__info info">
+            <div class="info__container">
+               <div class="info__content content-info">
+                  <div class="content-info__header">
+                     <h2 class="content-info__title">GET TO KNOW US</h2>
+                     <div class="content-info__text">
+                        <p>Lorem ipsum malesu.</p>
+                     </div>
+                  </div>
+                  <div class="content-info__accordion-menu menu-accordion">
+                     <article class="accordion-menu" data-accordion>
+                        <div class="accordion-menu__inner">
+                           <div class="accordion-menu__top">
+                              <div class="accordion-menu__header header-accordion" data-accordion-btn>
+                                 <h3 class="header-accordion__title">The Origin of our Drinks</h3>
+                                 <button class="button-more" data-accordion-icon>
+                                    <span></span>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="accordion-menu__content" data-accordion-body>
+                              <div class="accordion-menu__text">
+                                 <p>Id habitasse tortor molestie ut etiam ac faucibus. Arcu pellentesque pretium
+                                    ultrices egestas
+                                    nulla pharetra.
+                                    Consectetur sed urna tincidunt tellus mauris mi.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </article>
+                     <article class="accordion-menu" data-accordion>
+                        <div class="accordion-menu__inner">
+                           <div class="accordion-menu__top">
+                              <div class="accordion-menu__header header-accordion" data-accordion-btn>
+                                 <h3 class="header-accordion__title">Where you can Taste our Drinks?</h3>
+                                 <button class="button-more" data-accordion-icon>
+                                    <span></span>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="accordion-menu__content" data-accordion-body>
+                              <div class="accordion-menu__text">
+                                 <p>Id habitasse tortor molestie ut etiam ac faucibus. Arcu pellentesque pretium
+                                    ultrices egestas
+                                    nulla pharetra.
+                                    Consectetur sed urna tincidunt tellus mauris mi.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </article>
+                     <article class="accordion-menu" data-accordion>
+                        <div class="accordion-menu__inner">
+                           <div class="accordion-menu__top">
+                              <div class="accordion-menu__header header-accordion" data-accordion-btn>
+                                 <h3 class="header-accordion__title">Wine Quality Prediction</h3>
+                                 <button class="button-more" data-accordion-icon>
+                                    <span></span>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="accordion-menu__content" data-accordion-body>
+                              <div class="accordion-menu__text">
+                                 <p>Id habitasse tortor molestie ut etiam ac faucibus. Arcu pellentesque pretium
+                                    ultrices egestas
+                                    nulla pharetra.
+                                    Consectetur sed urna tincidunt tellus mauris mi.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </article>
+                     <article class="accordion-menu" data-accordion>
+                        <div class="accordion-menu__inner">
+                           <div class="accordion-menu__top">
+                              <div class="accordion-menu__header header-accordion" data-accordion-btn>
+                                 <h3 class="header-accordion__title">Learn More About Us</h3>
+                                 <button class="button-more" data-accordion-icon>
+                                    <span></span>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="accordion-menu__content" data-accordion-body>
+                              <div class="accordion-menu__text">
+                                 <p>Id habitasse tortor molestie ut etiam ac faucibus. Arcu pellentesque pretium
+                                    ultrices egestas
+                                    nulla pharetra.
+                                    Consectetur sed urna tincidunt tellus mauris mi.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </article>
+                  </div>
+               </div>
+               <div class="info__image">
+                  <img src="/vine-rouge/assets/map-img.68d503f5.webp" alt="image map info">
+               </div>
+            </div>
+         </section>
+
+         <section class="page__events events">
+            <div class="events__container">
+               <div class="events__header header-block header-block--centered">
+                  <span class="header-block__label">Augue sed nec</span>
+                  <h2 class="header-block__title">VINEYaRD EVENTS</h2>
+               </div>
+               <div class="events__body body-events">
+                  <ul class="body-events__list">
+                     <li class="body-events__item">
+                        <article class="item-event">
+                           <div class="item-event__inner">
+                              <div class="item-event__img">
+                                 <img src="/vine-rouge/assets/events-img-01.323308f9.webp" alt="events image">
+                              </div>
+                              <div class="item-event__content content-event">
+                                 <h3 class="content-event__title">WINE TOUR</h3>
+                                 <div class="content-event__info info-event">
+                                    <time datetime="2023-06-25"
+                                       class="info-event__date info-event__date--icon-calendar">June 25,
+                                       2023</time>
+                                    <time datetime="10:00"
+                                       class="info-event__time info-event__time--icon-time">10:00</time>
+                                    <a href="#" class="info-event__location info-event__location--icon-location">Lisbon,
+                                       Portugal</a>
+                                 </div>
+                                 <a href="#" class="content-event__link">SEE MORE</a>
+                              </div>
+                           </div>
+                        </article>
+                     </li>
+                     <li class="body-events__item">
+                        <article class="item-event">
+                           <div class="item-event__inner">
+                              <div class="item-event__img">
+                                 <img src="/vine-rouge/assets/events-img-02.0f13288b.webp" alt="events image">
+                              </div>
+                              <div class="item-event__content content-event">
+                                 <h3 class="content-event__title">APERITIV</h3>
+                                 <div class="content-event__info info-event">
+                                    <time datetime="2023-06-25"
+                                       class="info-event__date info-event__date--icon-calendar">June 25,
+                                       2023</time>
+                                    <time datetime="10:00"
+                                       class="info-event__time info-event__time--icon-time">10:00</time>
+                                    <a href="#" class="info-event__location info-event__location--icon-location">Lisbon,
+                                       Portugal</a>
+                                 </div>
+                                 <a href="#" class="content-event__link">SEE MORE</a>
+                              </div>
+                           </div>
+                        </article>
+                     </li>
+                     <li class="body-events__item">
+                        <article class="item-event">
+                           <div class="item-event__inner">
+                              <div class="item-event__img">
+                                 <img src="/vine-rouge/assets/events-img-03.cf03ccab.webp" alt="events image">
+                              </div>
+                              <div class="item-event__content content-event">
+                                 <h3 class="content-event__title">DRINK’S ORIGIN</h3>
+                                 <div class="content-event__info info-event">
+                                    <time datetime="2023-06-25"
+                                       class="info-event__date info-event__date--icon-calendar">June 25,
+                                       2023</time>
+                                    <time datetime="10:00"
+                                       class="info-event__time info-event__time--icon-time">10:00</time>
+                                    <a href="#" class="info-event__location info-event__location--icon-location">Lisbon,
+                                       Portugal</a>
+                                 </div>
+                                 <a href="#" class="content-event__link">SEE MORE</a>
+                              </div>
+                           </div>
+                        </article>
+                     </li>
+                  </ul>
+                  <div class="body-events__image">
+                     <img src="/vine-rouge/assets/event-img-big.cbd8bf25.webp" alt="image event">
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__form form">
+            <div class="form__container">
+               <article class="form-subscribe">
+                  <div class="form-subscribe__header header-block header-block--centered">
+                     <h2 class="form-subscribe__title header-block__title">NEWSLETTER</h2>
+                     <span class="form-subscribe__label header-block__label">Subscribe for lastest news</span>
+                     <div class="form-subscribe__text header-block__text">
+                        <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus dui vitae tellus
+                           et mi. Ut augue mattis
+                           augue dui et amet. Fringilla vestibulum dui
+                        </p>
+                     </div>
+                  </div>
+                  <form action="#" class="form-active">
+                     <input type="email" class="form-active__input" placeholder="Type your email here..." required>
+                     <button class="form-active__button button">SEND</button>
+                  </form>
+               </article>
+            </div>
+         </section>
+
+         <section class="page__client client">
+            <div class="client__container">
+               <div class="client__header header-block header-block--centered">
+                  <span class="header-block__label">Augue sed nec</span>
+                  <h2 class="header-block__title">OUr LOVING ClIENT</h2>
+               </div>
+               <div class="client__items">
+                  <a href="#" class="client__item">
+                     <img class="client__image client__image--small" src="/vine-rouge/assets/partners-img-01.022a5475.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-02.cc20ddd1.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-03.1af7de77.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-04.f4dedfa1.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-05.6ddfea70.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-06.a37acab1.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-07.142952b9.webp"
+                        alt="client company image">
+                  </a>
+                  <a href="#" class="client__item">
+                     <img class="client__image" src="/vine-rouge/assets/partners-img-08.3dc0a309.webp"
+                        alt="client company image">
+                  </a>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <footer class="footer">
+         <div class="footer__body body-footer">
+            <div class="body-footer__container">
+               <div class="body-footer__logo logo-footer">
+                  <a href="#" class="logo-footer__icon">
+                     <svg>
+                        <use href="/vine-rouge/assets/symbol-defs.71e2aad5.svg#icon-logo-tree"></use>
+                     </svg>
+                  </a>
+                  <img src="/vine-rouge/assets/logo-text.a55ab730.svg" alt="logo text" class="logo-footer__text">
+               </div>
+               <div class="body-footer__menu menu-footer">
+                  <div class="menu-footer__column column-contacts">
+                     <h3 class="column-contacts__title title-footer">CONTACT US</h3>
+                     <ul class="column-contacts__list">
+                        <li class="column-contacts__item">
+                           <a href="#" class="column-contacts__link column-contacts__link--icon-location">35 W 46nd
+                              Street Portugal</a>
+                        </li>
+                        <li class="column-contacts__item">
+                           <a href="emailto:vinrouge@dotcreativemarket.com"
+                              class="column-contacts__link column-contacts__link--icon-mail">vinrouge@dotcreativemarket.com</a>
+                        </li>
+                        <li class="column-contacts__item">
+                           <a href="phone:45678904567890"
+                              class="column-contacts__link column-contacts__link--icon-phone">+(123)
+                              456-7890-456-7890</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="menu-footer__column column-about">
+                     <h3 class="column-about__title title-footer">ABOUT US</h3>
+                     <ul class="column-about__list">
+                        <li class="column-about__item">
+                           <a href="#" class="column-about__link">Story about us</a>
+                        </li>
+                        <li class="column-about__item">
+                           <a href="#" class="column-about__link">Our latest blog posts</a>
+                        </li>
+                        <li class="column-about__item">
+                           <a href="#" class="column-about__link">Purchase our products</a>
+                        </li>
+                        <li class="column-about__item">
+                           <a href="#" class="column-about__link">Keep in touch</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="menu-footer__column column-news">
+                     <h3 class="column-news__title title-footer">LASTEST NEWS</h3>
+                     <ul class="column-news__list">
+                        <li class="column-news__item">
+                           <a href="#" class="column-news__link">
+                              <time class="column-news__date" datetime="2019-09-11">September 11, 2019</time>
+                              <span class="column-news__event">LARGEST VINEYARD</span>
+                           </a>
+                        </li>
+                        <li class="column-news__item">
+                           <a href="#" class="column-news__link">
+                              <time class="column-news__date" datetime="2019-09-11">September 11, 2019</time>
+                              <span class="column-news__event">Our Best Aperitifs</span>
+                           </a>
+                        </li>
+                        <li class="column-news__item">
+                           <a href="#" class="column-news__link">
+                              <time class="column-news__date" datetime="2019-09-11">September 11, 2019</time>
+                              <span class="column-news__event">Amazing Recipes</span>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer__bottom bottom-footer">
+            <div class="bottom-footer__container">
+               <a href="#" class="bottom-footer__copyrigth">
+                  Copyright <span>Dotcreativemarket</span>
+               </a>
+            </div>
+         </div>
+      </footer>
+   </div>
+
+
+   <div id="app"></div>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+   
+</body>
+
+</html>
