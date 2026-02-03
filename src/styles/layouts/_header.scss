@@ -1,0 +1,220 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+
+.header {
+   // display: none;
+   padding-block: toRem(25);
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 100;
+   transition: all 0.3s;
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      transition: background-color 0.3s ease-in-out;
+   }
+
+   &.scrolled {
+      &::before {
+         background-color: rgba(245, 235, 218, 0.7);
+         backdrop-filter: blur(20px);
+      }
+   }
+
+   // .header__container
+   &__container {
+
+      &--1440 {
+         max-width: toRem(1700) !important;
+      }
+   }
+
+   &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include adaptiveValue('gap', 100, 20);
+   }
+
+   // .header__menu
+   &__menu {
+      // delete
+      flex-grow: 1;
+   }
+}
+
+.menu-header {
+
+   @media (max-width: toEm(977)) {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: $bglight;
+      padding: toRem(140) toRem(15) toRem(30) toRem(15);
+      transition: all 0.3s;
+
+      .menu-open & {
+         right: 0;
+      }
+
+      &::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         right: -100%;
+         width: 100%;
+         min-height: toRem(106);
+         background-color: $bglight;
+         transition: all 0.3s;
+
+         .menu-open & {
+            right: 0;
+         }
+      }
+   }
+
+   // .menu-header__list
+   &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      @include adaptiveValue('gap', 65, 10);
+
+      @media (max-width: toEm(977)) {
+         display: flex;
+         flex-direction: column;
+         gap: toRem(30);
+         align-items: flex-end;
+      }
+   }
+
+   // .menu-header__item
+   &__item {
+
+      @media (max-width: toEm(977)) {
+        color: $black;
+      }
+   }
+
+   // .menu-header__link
+   &__link {
+      font-family: "Brand",sans-serif;
+      @include adaptiveValue('font-size', 26, 16);
+      color: $brandColor;
+      text-transform: uppercase;
+      line-height: 119.230769%; /* 31/26 */
+      font-weight: 600;
+      transition: color 0.3s;
+
+      @media (max-width: toEm(977)) {
+        font-size: toRem(28);
+      }
+
+      @include hover {
+        color: $brownLight;
+      }
+   }
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+   @include adaptiveValue('gap',15,5);
+
+   &__link {
+      z-index: 10;
+   }
+
+   // .logo__icon
+   &__icon {
+      @include adaptiveValue('width', 85, 50);
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      fill: $brownDark;
+      transition: fill 0.3s;
+
+      @include hover {
+        fill: $brownLight;
+      }
+   }
+
+   // .logo__text
+   &__text {
+      @include adaptiveValue('width',315,100);
+      height: toRem(55);
+      flex-shrink: 0;
+      z-index: 10;
+
+      @media (max-width: toEm(410)) {
+        display: none;
+      }
+   }
+}
+
+.actions-header {
+   display: flex;
+   align-items: center;
+   z-index: 10;
+
+   // .actions-header__button
+   &__button {
+      line-height: 0;
+      border: toRem(1.5) solid $brandColor;
+      width: toRem(56);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s;
+
+      &::before {
+         font-size: toRem(24);
+         color: $brandColor;
+         transition: color 0.3s;
+      }
+
+      &:not(:first-child) {
+         margin-left: toRem(-1);
+      }
+
+      @include hover {
+        background-color: $brownDark;
+        &::before {
+          color: $white;
+        }
+      }
+   }
+
+   &__burger {
+      border: toRem(1.5) solid $brandColor;
+      line-height: 0;
+      @include adaptiveValue('padding-block', 14, 10);
+         @include adaptiveValue('padding-inline', 17, 12);
+      width: toRem(56);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: toRem(-1);
+
+      @media (min-width: toEm(977.98)) {
+        display: none;
+      }
+   }
+}
+
+

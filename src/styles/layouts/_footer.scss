@@ -1,0 +1,207 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+.footer {
+   // display: none;
+   position: relative;
+   background-color: $bglight;
+
+   &::before {
+     content: "";
+     @include pseudo;
+     background-image: url("/src/assets/img/decors/bg-img.webp");
+     @include bg-cover($position:top);
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: toRem(250);
+     pointer-events: none;
+   }
+}
+
+.body-footer {
+   @include adaptiveValue('padding-block', 118, 50);
+   // .body-footer__container
+   &__container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: toRem(1700) !important;
+      @include adaptiveValue('gap',50,25);
+
+      @media (max-width: toEm(1210)) {
+        flex-direction: column;
+        align-items: center;
+      }
+   }
+}
+
+.logo-footer {
+   display: inline-flex;
+   align-items: center;
+   gap: toRem(20);
+
+   @media (max-width: toEm(1400)) {
+     flex-direction: column;
+   //   align-items: flex-start;
+   }
+   @media (max-width: toEm(1210)) {
+     flex-direction: row;
+   }
+   @media (max-width: toEm(750)) {
+   //   flex-direction: column;
+   }
+
+   // .logo-footer__icon
+   &__icon {
+      line-height: 0;
+      flex-shrink: 0;
+      svg {
+         width: toRem(100);
+         aspect-ratio: 1;
+         fill: $brownDark;
+         transition: fill 0.3s;
+      }
+
+      @include hover {
+         svg {
+            fill: $brownLight;
+         }
+      }
+   }
+
+   // .logo-footer__text
+   &__text {
+      @include adaptiveValue('width',382,170);
+      flex-shrink: 0;
+   }
+}
+
+.menu-footer {
+   display: flex;
+   @include adaptiveValue('gap',50,25);
+
+   @media (max-width: toEm(1210)) {
+   //   width: 100%;
+     justify-content: space-around;
+   }
+
+   @media (max-width: toEm(750)) {
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+   }
+
+   // .menu-footer__column
+   &__column {
+
+      @media (max-width: toEm(750)) {
+        width: 100%;
+      }
+   }
+}
+
+.column-contacts {
+
+   // .column-contacts__link
+   &__link {
+      @include adaptiveValue('font-size', 17, 13);
+      font-style: italic;
+      color: $colorPrimary;
+      line-height: 205.882353%; /* 35/17 */
+      display: flex;
+      align-items: center;
+      gap: toRem(13);
+      transition: color 0.3s;
+
+      &::before {
+         color: $brownLight;
+         font-size: toRem(16);
+      }
+
+      @include hover {
+        color: $brownDark
+      }
+
+   }
+}
+
+.title-footer {
+   @include adaptiveValue('font-size', 24, 18);
+   color: $brownDark;
+   letter-spacing: toRem(2);
+   text-transform: uppercase;
+   border-bottom: toRem(1) solid $brownLight;
+   display: inline-flex;
+   padding-bottom: toRem(16);
+}
+
+.column-about {
+
+   // .column-about__link
+   &__link {
+      @include adaptiveValue('font-size', 17, 13);
+      font-style: italic;
+      color: $colorPrimary;
+      line-height: 205.882353%;
+      transition: color 0.3s;
+
+      @include hover {
+        color: $brownDark;
+      }
+   }
+}
+
+.column-news {
+
+   // .column-news__link
+   &__link {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+
+      @include hover {
+         span {
+            color: $brownDark;
+         }
+      }
+   }
+
+   &__date {
+      @include adaptiveValue('font-size', 17, 13);
+      font-style: italic;
+      color: rgba(187, 101, 0, 1);
+   }
+
+   // .column-news__event
+   &__event {
+      @include adaptiveValue('font-size', 20, 16);
+      color: $colorPrimary;
+      line-height: 150%; /* 30/20 */
+      text-transform: uppercase;
+      @include transition;
+   }
+}
+
+.bottom-footer {
+   @include adaptiveValue('padding-block', 15, 10);
+   // .bottom-footer__container
+   &__container {
+      text-align: center;
+   }
+
+   &__copyrigth {
+      text-align: center;
+      color: $brownDark;
+      @include adaptiveValue('font-size', 17, 13);
+
+      @include hover {
+        text-decoration: underline;
+      }
+
+      span {
+         color: rgba(175, 105, 0, 1);
+      }
+   }
+}
