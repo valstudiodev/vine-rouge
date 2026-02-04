@@ -118,7 +118,7 @@
       transition: all 0.3s;
    }
 
-   @media (min-width: toEm(977.98)) {
+   @media (min-width: toEm(979.98)) {
       display: none;
    }
 }
@@ -436,10 +436,6 @@
 
    @include hover {
      translate:toRem(0) toRem(-4);
-
-      // .item-history-adv__title {
-      //    color: $brownLight;
-      // }
    }
 }
 

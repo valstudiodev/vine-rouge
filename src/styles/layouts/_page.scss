@@ -18,7 +18,7 @@
    // .page__history
    &__history {
       // display: none;
-      @include adaptiveValue('padding-block', 70, 30);
+      @include adaptiveValue('padding-block', 200, 50);
    }
 
    // .page__advantages
@@ -181,7 +181,7 @@
       color: $brownLight;
       @include adaptiveValue('font-size', 24, 18);
       text-transform: uppercase;
-      letter-spacing: toRem(3.5);
+      letter-spacing: toRem(4);
       @include adaptiveValue('margin-bottom', 33, 15);
    }
 
@@ -213,6 +213,7 @@
       line-height: 127.272727%; /* 28/22 */
       padding-inline: toRem(67);
       @include transition;
+      text-align: center;
 
       &::after,
       &::before {
@@ -249,6 +250,7 @@
 // navigation
 // -----------------------------
 .navigation {
+   border-bottom: toRem(2) solid $borderColor;
 
    &__container {
       display: flex;
@@ -257,10 +259,14 @@
       flex-wrap: wrap;
       @include adaptiveValue('gap',40,20);
 
+      @media (max-width: toEm(854)) {
+         justify-content: space-evenly;
+      }
       @media (max-width: toEm(465)) {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
       }
+
    }
 }
 
@@ -270,33 +276,33 @@
 // -----------------------------
 .history {
    position: relative;
-   z-index: 1;
+
    // .history__container
    &__container {
-      // position: relative;
+      position: relative;
       display: flex;
       align-items: flex-start;
       @include adaptiveValue('gap',115,30);
       z-index: 1;
 
-      // &::before {
-      //    content: "";
-      //    position: absolute;
-      //    top: 47%;
-      //    // left: percent(800, 1440);
-      //    right: toRem(-113);
-      //    translate: 0 -50%;
-      //    background: url("/src/assets/img/decors/bg-img.webp") bottom / 100% no-repeat;
-      //    // width: percent(860, 662);
-      //    // height: percent(740, 442);
-      //    // @include adaptiveValue('width',860,400);
-      //    // @include adaptiveValue('height',740,300);
-      //    width: toRem(860);
-      //    height: toRem(740);
-      //    background-color: $bglight;
-      //    z-index: -1;
-      //    rotate: -3deg;
-      // }
+      &::before {
+        @include pseudo;
+        top: 8%;
+        right: -30%;
+        background-image: url("/src/assets/img/decors/decor-img-left.webp");
+        @include bg-cover;
+        width: toRem(676);
+        height: toRem(733);
+        z-index: 2;
+        rotate: -78.45deg;
+        pointer-events: none;
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before {
+         display: none;
+        }
+      }
 
       @media (max-width: toEm(783)) {
         flex-direction: column;
@@ -306,6 +312,21 @@
 
 .content-history {
    flex: 1 1 50%;
+   z-index: 5;
+
+   @media (max-width: toEm(783)) {
+      width: 100%;
+   }
+
+   &__header {
+
+      @media (max-width: toEm(783)) {
+         align-items: center !important;
+         .header-block__text {
+            text-align: center;
+         }
+      }
+   }
 
    &__button {
 
@@ -320,19 +341,39 @@
    z-index: 1;
    flex: 1 1 50%;
 
-   // &::before {
-   //   content: "";
-   //   position: absolute;
-   //   top: 47%;
-   //   left: percent(130,662);
-   //   translate: 0 -50%;
-   //   background: url("/src/assets/img/decors/bg-img.webp")  bottom / 100% no-repeat;
-   //   width: percent(860,662);
-   //   height: percent(740,442);
-   //   background-color: $bglight;
-   //   z-index: -1;
-   //   rotate: -3deg;
-   // }
+   &::before {
+     content: "";
+     position: absolute;
+     top: 47%;
+     left: percent(130,662);
+     translate: 0 -50%;
+     background-image: url("/src/assets/img/decors/bg-img.webp");
+     @include bg-cover($position:right);
+     width: toRem(800);
+     height: toRem(700);
+     background-color: $bglight;
+     z-index: -5;
+     rotate: -3deg;
+     pointer-events: none;
+   }
+
+   &::after {
+      @include pseudo;
+      top: percent(359,457);
+      left: percent(-90,602);
+      background-image: url("/src/assets/icons/logo.svg");
+      @include bg-cover;
+      width: toRem(170);
+      aspect-ratio: 1;
+      pointer-events: none;
+   }
+
+   @media (max-width: toEm($mobile)) {
+      margin-inline: toRem(-15);
+      &::after {
+         opacity: 0.6;
+      }
+   }
 
    &__wrap {
       position: relative;
@@ -366,6 +407,12 @@
       color: $colorPrimary;
       text-align: right;
    }
+
+   @media (max-width: toEm(1000)) {
+     &::before {
+      display: none;
+     }
+   }
 }
 
 // ===========================================================================================
@@ -381,18 +428,23 @@
 
    // .advantages__items
    &__items {
+      position: relative;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       @include adaptiveValue('gap',40,20);
       @include adaptiveValue('margin-bottom', 40, 20);
-
-      &:has(.item-advantages:hover) .item-advantages:not(:hover) {
-         opacity: 0.5;
-      }
+      z-index: 5;
 
       @media (max-width: toEm(1339)) {
         justify-content: space-evenly;
+      }
+
+      @include hover {
+         &:has(.item-advantages:hover) .item-advantages:not(:hover) {
+            opacity: 0.5;
+            pointer-events: auto;
+         }
       }
    }
 
@@ -406,6 +458,7 @@
       @media (max-width: toEm(700)) {
         margin-inline: toRem(-15);
         aspect-ratio: 16 / 9;
+        border-radius: 0;
       }
 
       img {
@@ -413,11 +466,6 @@
          height: 100%;
          object-fit: cover;
          object-position: center;
-      }
-
-      @media (max-width: toEm(700)) {
-        img {
-        }
       }
    }
 }
@@ -556,12 +604,49 @@
 .spirits {
 
    &__header {
+      position: relative;
       @include adaptiveValue('margin-bottom', 80, 40);
+
+      &::after {
+        @include pseudo;
+        top: 0;
+        right: percent(434,1670);
+        background-image: url("/src/assets/icons/logo.svg");
+        @include bg-cover;
+        width: toRem(173);
+        aspect-ratio: 1;
+        pointer-events: none;
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::after {
+         opacity: 0.6;
+        }
+      }
    }
 
    // .spirits__container
    &__container {
+      position: relative;
       max-width: toRem(1700) !important;
+
+      &::before {
+        @include pseudo;
+        top: 25%;
+        left: -20%;
+        background-image: url("/src/assets/img/decors/decor-img-left.webp");
+        width: toRem(806);
+        height: toRem(889);
+        @include bg-cover;
+        rotate: 180deg;
+        pointer-events: none;
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before {
+         display: none;
+        }
+      }
    }
 
    // .spirits__body
@@ -674,7 +759,64 @@
 .auroma {
 
    // .auroma__container
-   &__container {}
+   &__container {
+      position: relative;
+      z-index: 1;
+
+      &::after,
+      &::before {
+         @include pseudo;
+         @include bg-cover;
+         width: clamp(250px, 40vw, 800px);
+         pointer-events: none;
+      }
+      &::before {
+         top: 50%;
+         left: clamp(-44%, -20vw, -10%);
+         background-image: url("/src/assets/img/decors/decor-img-left.webp");
+         aspect-ratio: 828 / 762;
+      }
+      &::after {
+         top: 77%;
+         right: clamp(-38%, -15vw, -5%);
+         background-image: url("/src/assets/img/decors/decor-img-right.webp");
+         aspect-ratio: 806 / 889;
+         width: clamp(300px, 50vw, 806px);
+         height: auto;
+         z-index: 1;
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+         display: none;
+        }
+      }
+   }
+
+   &__gallery {
+      position: relative;
+
+      &::before {
+        @include pseudo;
+        top: -30%;
+        left: -65%;
+        background-image: url("/src/assets/img/decors/bg-img.webp");
+        @include bg-cover;
+        width: toRem(1108);
+        height: toRem(780);
+        background-color: $bglight;
+        z-index: -1;
+        rotate: 4deg;
+        pointer-events: none;
+      }
+
+      @media (max-width: toEm(1000)) {
+        &::before {
+         display: none;
+        }
+      }
+   }
 
    // .auroma__header
    &__header {
@@ -720,25 +862,25 @@
       grid-template-rows: auto;
       gap: toRem(30);
 
-      &:has(.item-history-adv:hover) .item-history-adv:not(:hover) {
+      @media (max-width: toEm(899)) {
+         justify-items: center;
+      }
+
+      @include hover {
+         &:has(.item-history-adv:hover) .item-history-adv:not(:hover) {
             opacity: 0.5;
          }
-
-      @media (max-width: toEm(599)) {
-      //   justify-items: center;
       }
    }
 
    // .history-auroma__header
    &__header {
 
-      @media (max-width: toEm(599)) {
-         // &.header-block {
-         //    align-items: center;
-         //    .header-block__text {
-         //       text-align: center;
-         //    }
-         // }
+      @media (max-width: toEm(899)) {
+         align-items: center !important;
+         .header-block__text {
+            text-align: center !important;
+         }
       }
    }
 }
@@ -774,6 +916,7 @@
       @media (max-width: toEm(700)) {
          margin-inline: toRem(-15);
          aspect-ratio: 16 / 9;
+         border-radius: 0;
       }
 
       img {
@@ -937,15 +1080,32 @@
 
    // .body-events__image
    &__image {
+      position: relative;
       flex: 1 1 37.361111%;
       overflow: hidden;
+      border-radius: toRem(11);
+
+      &::before {
+        @include pseudo;
+        top: percent(-67,718);
+        left: percent(390, 546);
+        background-image: url("/src/assets/icons/logo.svg");
+        @include bg-cover;
+        width: toRem(210);
+        aspect-ratio: 1;
+        opacity: 0.5;
+      }
 
       img {
          width: 100%;
          height: 100%;
          object-fit: cover;
-         border-radius: toRem(11);
          object-position: left;
+      }
+
+      @media (max-width: toEm(700)) {
+         border-radius: 0;
+         margin-inline: toRem(-15);
       }
    }
 }
@@ -956,24 +1116,18 @@
 // -----------------------------
 .form {
    position: relative;
-   // padding-top: calc(toRem(743) - 50%);
    padding-top: calc(toRem(543) / 2);
+
    &::before {
      content: "";
      position: absolute;
      top: 0;
      left: 0;
-     background-image: url("/src/assets/img/banners/banner-img-03.webp");
-     background-position: right;
-     background-size: cover;
-     background-repeat: no-repeat;
+     background-image: url("/src/assets/img/banners/form-banner.webp");
+     @include bg-cover($position: 70%);
      width: 100%;
      height: 100%;
-
    }
-
-   // .form__container
-   &__container {}
 }
 
 .form-subscribe {
@@ -1032,7 +1186,7 @@
    // .form-active__input
    &__input {
       text-align: center;
-      @include adaptiveValue('font-size', 17, 13);
+      font-size: toRem(17);
       font-style: italic;
       max-width: toRem(642);
       border-bottom: toRem(1) solid $brownDark;
@@ -1049,9 +1203,6 @@
          }
       }
    }
-
-   // .form-active__button
-   &__button {}
 }
 
 // ===========================================================================================

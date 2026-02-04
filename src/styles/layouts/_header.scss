@@ -4,13 +4,15 @@
 
 .header {
    // display: none;
-   padding-block: toRem(25);
+   @include adaptiveValue('padding-block', 25, 15);
    position: fixed;
-   top: 0;
-   left: 0;
+   // top: 0;
+   // left: 0;
+   inset: 0 0 auto 0;
    width: 100%;
    z-index: 100;
    transition: all 0.3s;
+
 
    &::before {
       content: "";
@@ -22,6 +24,8 @@
       height: 100%;
       z-index: -1;
       transition: background-color 0.3s ease-in-out;
+      @include adaptive-clamp("padding-top", 25, 15);
+         @include adaptive-clamp("padding-bottom", 25, 15);
    }
 
    &.scrolled {
@@ -51,20 +55,26 @@
       // delete
       flex-grow: 1;
    }
+
+   &.scroll-lock {
+      overflow: hidden;
+   }
 }
 
 .menu-header {
 
    @media (max-width: toEm(977)) {
+      overflow: auto;
       display: block;
       position: fixed;
       top: 0;
       right: -100%;
-      width: 100%;
+      width: 70%;
       height: 100%;
-      background-color: $bglight;
+      background-color: $borderColor ;
       padding: toRem(140) toRem(15) toRem(30) toRem(15);
       transition: all 0.3s;
+      opacity: 0.95;
 
       .menu-open & {
          right: 0;
@@ -76,7 +86,7 @@
          top: 0;
          right: -100%;
          width: 100%;
-         min-height: toRem(106);
+         @include adaptiveValue('height',144,87);
          background-color: $bglight;
          transition: all 0.3s;
 
@@ -90,7 +100,7 @@
    &__list {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
+      // flex-wrap: wrap;
       justify-content: flex-end;
       @include adaptiveValue('gap', 65, 10);
 
@@ -122,6 +132,7 @@
 
       @media (max-width: toEm(977)) {
         font-size: toRem(28);
+        color: $brandColor;
       }
 
       @include hover {
