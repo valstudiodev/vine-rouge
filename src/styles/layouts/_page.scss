@@ -1212,6 +1212,7 @@
         width: toRem(210);
         aspect-ratio: 1;
         opacity: 0.5;
+        animation: slowRotate 60s linear infinite;
       }
 
       img {
@@ -1255,6 +1256,7 @@
    @include adaptiveValue('padding-block', 68, 30);
    padding-inline: toRem(15);
    @include reveal((0,100px),1.2s);
+   z-index: 5;
 
    &::before {
      content: "";
@@ -1266,6 +1268,7 @@
      background-size: cover;
      width: toRem(210);
      aspect-ratio: 1;
+     animation: slowRotate 60s linear infinite;
    }
 
    @media (max-width: toEm(1000)) {

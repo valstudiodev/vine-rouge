@@ -2770,6 +2770,8 @@ html[data-input=mouse] .history-auroma__items:hover:has(.item-history-adv:hover)
   width: 13.125rem;
   aspect-ratio: 1;
   opacity: 0.5;
+  -webkit-animation: slowRotate 60s linear infinite;
+          animation: slowRotate 60s linear infinite;
 }
 .body-events__image img {
   width: 100%;
@@ -2817,6 +2819,7 @@ html[data-input=mouse] .history-auroma__items:hover:has(.item-history-adv:hover)
   transition: opacity 1.2s ease 0s, -webkit-transform 1.2s ease 0s;
   transition: transform 1.2s ease 0s, opacity 1.2s ease 0s;
   transition: transform 1.2s ease 0s, opacity 1.2s ease 0s, -webkit-transform 1.2s ease 0s;
+  z-index: 5;
 }
 @media (min-width: 84.375em) {
   .form-subscribe {
@@ -2849,6 +2852,8 @@ html[data-input=mouse] .history-auroma__items:hover:has(.item-history-adv:hover)
   background-size: cover;
   width: 13.125rem;
   aspect-ratio: 1;
+  -webkit-animation: slowRotate 60s linear infinite;
+          animation: slowRotate 60s linear infinite;
 }
 @media (max-width: 62.5em) {
   .form-subscribe::before {
@@ -3545,6 +3550,11 @@ html[data-input=mouse] .client__item:hover .client__image {
 html[data-input=mouse] .button:hover {
   background-color: transparent;
   color: rgb(175, 105, 0);
+}
+@media (max-width: 35em) {
+  .button {
+    width: 100%;
+  }
 }
 
 .button-more {

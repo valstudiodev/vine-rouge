@@ -189,6 +189,10 @@
      background-color: transparent;
      color: $brownLight;
    }
+
+   @media (max-width: toEm(560)) {
+     width: 100%;
+   }
 }
 
 .button-more {
