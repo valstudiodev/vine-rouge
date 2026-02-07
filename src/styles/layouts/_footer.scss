@@ -40,6 +40,7 @@
    display: inline-flex;
    align-items: center;
    gap: toRem(20);
+   @include zoomIn($duration: 1s,$origin: top left);
 
    @media (max-width: toEm(1400)) {
      flex-direction: column;
@@ -94,7 +95,7 @@
 
    // .menu-footer__column
    &__column {
-
+      @include reveal((0,50px),1s);
       @media (max-width: toEm(750)) {
         width: 100%;
       }

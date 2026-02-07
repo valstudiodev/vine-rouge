@@ -128,15 +128,19 @@
       text-transform: uppercase;
       line-height: 119.230769%; /* 31/26 */
       font-weight: 600;
-      transition: color 0.3s;
+      @include transition;
+      @include link-hover-underline(1px, $brownLight);
 
       @media (max-width: toEm(977)) {
         font-size: toRem(28);
         color: $brandColor;
       }
 
+      // @include hover {
+      //   color: $brownLight;
+      // }
       @include hover {
-        color: $brownLight;
+         color: $brownLight;
       }
    }
 }

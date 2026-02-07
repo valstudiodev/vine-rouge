@@ -89,7 +89,7 @@
 
       <main class="page">
          <section class="page__hero hero">
-            <div class="hero__container">
+            <div class="hero__container" data-delay="800">
                <div class="hero__content content-hero">
                   <div class="content-hero__label">WINEMAKING TRADITION</div>
                   <h1 class="content-hero__title">Wines from all over the world</h1>
@@ -107,8 +107,8 @@
          </section>
 
          <div class="page__navigation navigation">
-            <div class="navigation__container">
-               <article class="item-navigation">
+            <div class="navigation__container navigation__container--anim" data-delay="300" data-step="200">
+               <article class="item-navigation anim-child">
                   <a href="#" class="item-navigation__inner">
                      <div class="item-navigation__number">01.</div>
                      <div class="item-navigation__content">
@@ -119,7 +119,7 @@
                      </div>
                   </a>
                </article>
-               <article class="item-navigation">
+               <article class="item-navigation anim-child">
                   <a href="#" class="item-navigation__inner">
                      <div class="item-navigation__number">02.</div>
                      <div class="item-navigation__content">
@@ -130,7 +130,7 @@
                      </div>
                   </a>
                </article>
-               <article class="item-navigation">
+               <article class="item-navigation anim-child">
                   <a href="#" class="item-navigation__inner">
                      <div class="item-navigation__number">03.</div>
                      <div class="item-navigation__content">
@@ -146,7 +146,7 @@
 
          <section class="page__history history">
             <div class="history__container">
-               <div class="history__content content-history">
+               <div class="history__content content-history content-history--anim" data-delay="350">
                   <div class="content-history__header header-block">
                      <span class="header-block__label">Augue sed nec</span>
                      <h2 class="header-block__title">OUR HISTOrY</h2>
@@ -161,10 +161,10 @@
                            tincidunt viverra.
                         </p>
                      </div>
-                     <button class="content-history__button button">SEE MORE</button>
+                     <button class="header-block__button button">SEE MORE</button>
                   </div>
                </div>
-               <div class="history__image image-history">
+               <div class="history__image image-history image-history--anim" data-delay="100">
                   <div class="image-history__wrap">
                      <img class="image-history__img" src="/src/assets/img/history-img-big.webp"
                         alt="history section image">
@@ -177,8 +177,8 @@
 
          <div class="page__advantages advantages">
             <div class="advantages__container">
-               <div class="advantages__items">
-                  <a href="#" class="item-advantages item-advantages--wine">
+               <div class="advantages__items advantages__items--anim" data-step="200" data-delay="200">
+                  <a href="#" class="item-advantages item-advantages--wine anim-child">
                      <div class="item-advantages__content">
                         <div class="item-advantages__label">LOREMIS</div>
                         <h4 class="item-advantages__title">WINE GLASS</h4>
@@ -187,7 +187,7 @@
                         </div>
                      </div>
                   </a>
-                  <a href="#" class="item-advantages item-advantages--tasting">
+                  <a href="#" class="item-advantages item-advantages--tasting anim-child">
                      <div class="item-advantages__content">
                         <div class="item-advantages__label">LOREMIS</div>
                         <h4 class="item-advantages__title">TASTING DAY</h4>
@@ -196,7 +196,7 @@
                         </div>
                      </div>
                   </a>
-                  <a href="#" class="item-advantages item-advantages--harvest">
+                  <a href="#" class="item-advantages item-advantages--harvest anim-child">
                      <div class="item-advantages__content">
                         <div class="item-advantages__label">LOREMIS</div>
                         <h4 class="item-advantages__title">BEST HARVEST</h4>
@@ -205,7 +205,7 @@
                         </div>
                      </div>
                   </a>
-                  <a href="#" class="item-advantages item-advantages--package">
+                  <a href="#" class="item-advantages item-advantages--package anim-child">
                      <div class="item-advantages__content">
                         <div class="item-advantages__label">LOREMIS</div>
                         <h4 class="item-advantages__title">OUR PACKAGE</h4>
@@ -215,9 +215,9 @@
                      </div>
                   </a>
                </div>
-               <div class="advantages__banner">
+               <div class="advantages__banner advantages__banner--anim overlay" data-delay="200" data-treshold="0.6">
                   <img src="/src/assets/img/banners/banner-img-01.webp" alt="banner image">
-                  <div class="banner__signature signature">
+                  <div class="signature">
                      <h4 class="signature__title">WINEMAKING</h4>
                      <div class="signature__text">
                         <p>Lorem ipsum malesu.</p>
@@ -228,7 +228,7 @@
          </div>
 
          <section class="page__spirits spirits">
-            <div class="spirits__container">
+            <div class="spirits__container spirits__container--anim" data-delay="200" data-treshold="0.3">
                <div class="spirits__header header-block header-block--centered">
                   <span class="header-block__label">Augue sed nec</span>
                   <h2 class="header-block__title">OuR BEST SPIRIT</h2>
@@ -378,7 +378,7 @@
 
          <div class="page__reviews reviews">
             <div class="reviews__wrapper">
-               <div class="reviews__container">
+               <div class="reviews__container reviews__container--anim" data-delay="100">
                   <!-- If we need navigation buttons -->
                   <button class="button-arrow button-arrow--icon-chevron button-arrow--prev"></button>
                   <!-- Slider main container -->
@@ -480,27 +480,27 @@
 
          <section class="page__auroma auroma">
             <div class="auroma__container">
-               <div class="auroma__header header-block header-block--centered">
+               <div class="auroma__header auroma__header--anim header-block header-block--centered" data-delay="100">
                   <span class="header-block__label">Augue sed nec</span>
                   <h2 class="header-block__title">OUR HISTOrY</h2>
                </div>
-               <div class="auroma__gallery gallery-grid">
+               <div class="auroma__gallery gallery-grid gallery-grid--anim" data-delay="100" data-step="250">
                   <img src="/src/assets/img/gallery/gallery-img-01.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                   <img src="/src/assets/img/gallery/gallery-img-02.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                   <img src="/src/assets/img/gallery/gallery-img-03.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                   <img src="/src/assets/img/gallery/gallery-img-04.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                   <img src="/src/assets/img/gallery/gallery-img-05.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                   <img src="/src/assets/img/gallery/gallery-img-06.webp" alt="gallery image"
-                     class="gallery-grid__image">
+                     class="gallery-grid__image anim-child">
                </div>
                <div class="auroma__history history-auroma">
-                  <div class="history-auroma__items">
-                     <a href="#" class="item-history-adv">
+                  <div class="history-auroma__items history-auroma__items--anim" data-delay="100" data-step="250">
+                     <a href="#" class="item-history-adv anim-child">
                         <figure class="item-history-adv__img img-advantages">
                            <svg class="img-advantages__icon img-advantages__icon--wine">
                               <use href="/src/assets/icons/symbol-defs.svg#icon-history-i-01"></use>
@@ -513,7 +513,7 @@
                            </div>
                         </figcaption>
                      </a>
-                     <a href="#" class="item-history-adv">
+                     <a href="#" class="item-history-adv anim-child">
                         <figure class="item-history-adv__img img-advantages">
                            <svg class="img-advantages__icon img-advantages__icon--wine">
                               <use href="/src/assets/icons/symbol-defs.svg#icon-history-i-02"></use>
@@ -526,7 +526,7 @@
                            </div>
                         </figcaption>
                      </a>
-                     <a href="#" class="item-history-adv">
+                     <a href="#" class="item-history-adv anim-child">
                         <figure class="item-history-adv__img img-advantages">
                            <svg class="img-advantages__icon img-advantages__icon--wine">
                               <use href="/src/assets/icons/symbol-defs.svg#icon-history-i-03"></use>
@@ -539,7 +539,7 @@
                            </div>
                         </figcaption>
                      </a>
-                     <a href="#" class="item-history-adv">
+                     <a href="#" class="item-history-adv anim-child">
                         <figure class="item-history-adv__img img-advantages">
                            <svg class="img-advantages__icon img-advantages__icon--wine">
                               <use href="/src/assets/icons/symbol-defs.svg#icon-history-i-04"></use>
@@ -553,7 +553,8 @@
                         </figcaption>
                      </a>
                   </div>
-                  <div class="history-auroma__header header-block header-block--small">
+                  <div class="history-auroma__header history-auroma__header--anim header-block header-block--small"
+                     data-delay="100">
                      <h2 class="header-block__title">OUR HISTOrY</h2>
                      <div class="header-block__text">
                         <p>Mattis aliquam malesuada euismod augue posuere venenatis. Maecenas faucibus dui vitae tellus
@@ -569,9 +570,9 @@
 
          <div class="page__banner banner">
             <div class="banner__container">
-               <div class="banner__image">
+               <div class="banner__image banner__image--anim overlay" data-delay="100">
                   <img src="/src/assets/img/banners/banner-02.webp" alt="banner image">
-                  <div class="banner__signature signature">
+                  <div class="signature">
                      <h4 class="signature__title">OUR VINEYARD</h4>
                      <div class="signature__text">
                         <p>Lorem ipsum malesu.</p>
@@ -583,12 +584,12 @@
 
          <section class="page__employees employees">
             <div class="employees__container">
-               <div class="employees__header header-block header-block--centered">
+               <div class="employees__header employees__header--anim header-block header-block--centered">
                   <span class="header-block__label">Augue sed nec</span>
                   <h2 class="header-block__title">OuR BEST SPIRIT</h2>
                </div>
-               <div class="employees__items">
-                  <article class="item-employee">
+               <div class="employees__items employees__items--anim" data-delay="100" data-step="250">
+                  <article class="item-employee anim-child">
                      <div class="item-employee__inner">
                         <a href="#" class="item-employee__image">
                            <img src="/src/assets/img/employees/employee-img-01.webp" alt="employee image">
@@ -617,7 +618,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-employee">
+                  <article class="item-employee anim-child">
                      <div class="item-employee__inner">
                         <a href="#" class="item-employee__image">
                            <img src="/src/assets/img/employees/employee-img-02.webp" alt="employee image">
@@ -646,7 +647,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-employee">
+                  <article class="item-employee anim-child">
                      <div class="item-employee__inner">
                         <a href="#" class="item-employee__image">
                            <img src="/src/assets/img/employees/employee-img-03.webp" alt="employee image">
@@ -675,7 +676,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-employee">
+                  <article class="item-employee anim-child">
                      <div class="item-employee__inner">
                         <a href="#" class="item-employee__image">
                            <img src="/src/assets/img/employees/employee-img-04.webp" alt="employee image">
@@ -710,7 +711,7 @@
 
          <section class="page__info info">
             <div class="info__container">
-               <div class="info__content content-info">
+               <div class="info__content content-info content-info--anim" data-delay="450" data-treshold="0.3">
                   <div class="content-info__header">
                      <h2 class="content-info__title">GET TO KNOW US</h2>
                      <div class="content-info__text">
@@ -804,7 +805,7 @@
                      </article>
                   </div>
                </div>
-               <div class="info__image">
+               <div class="info__image info__image--anim" data-delay="100" data-treshold="0.1">
                   <img src="/src/assets/img/map-img.webp" alt="image map info">
                </div>
             </div>
@@ -812,13 +813,13 @@
 
          <section class="page__events events">
             <div class="events__container">
-               <div class="events__header header-block header-block--centered">
+               <div class="events__header events__header--anim header-block header-block--centered">
                   <span class="header-block__label">Augue sed nec</span>
                   <h2 class="header-block__title">VINEYaRD EVENTS</h2>
                </div>
                <div class="events__body body-events">
-                  <ul class="body-events__list">
-                     <li class="body-events__item">
+                  <ul class="body-events__list body-events__list--anim" data-delay="100" data-step="250">
+                     <li class="body-events__item anim-child">
                         <article class="item-event">
                            <div class="item-event__inner">
                               <div class="item-event__img">
@@ -840,7 +841,7 @@
                            </div>
                         </article>
                      </li>
-                     <li class="body-events__item">
+                     <li class="body-events__item anim-child">
                         <article class="item-event">
                            <div class="item-event__inner">
                               <div class="item-event__img">
@@ -862,7 +863,7 @@
                            </div>
                         </article>
                      </li>
-                     <li class="body-events__item">
+                     <li class="body-events__item anim-child">
                         <article class="item-event">
                            <div class="item-event__inner">
                               <div class="item-event__img">
@@ -885,7 +886,7 @@
                         </article>
                      </li>
                   </ul>
-                  <div class="body-events__image">
+                  <div class="body-events__image body-events__image--anim" data-delay="100">
                      <img src="/src/assets/img/events/event-img-big.webp" alt="image event">
                   </div>
                </div>
@@ -894,7 +895,7 @@
 
          <section class="page__form form">
             <div class="form__container">
-               <article class="form-subscribe">
+               <article class="form-subscribe form-subscribe--anim" data-delay="100">
                   <div class="form-subscribe__header header-block header-block--centered">
                      <h2 class="form-subscribe__title header-block__title">NEWSLETTER</h2>
                      <span class="form-subscribe__label header-block__label">Subscribe for lastest news</span>
@@ -915,40 +916,40 @@
 
          <section class="page__client client">
             <div class="client__container">
-               <div class="client__header header-block header-block--centered">
+               <div class="client__header client__header--anim header-block header-block--centered">
                   <span class="header-block__label">Augue sed nec</span>
                   <h2 class="header-block__title">OUr LOVING ClIENT</h2>
                </div>
-               <div class="client__items">
-                  <a href="#" class="client__item">
+               <div class="client__items client__items--anim" data-delay="100" data-step="200">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image client__image--small" src="/src/assets/img/partners/partners-img-01.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-02.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-03.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-04.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-05.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-06.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-07.webp"
                         alt="client company image">
                   </a>
-                  <a href="#" class="client__item">
+                  <a href="#" class="client__item anim-child">
                      <img class="client__image" src="/src/assets/img/partners/partners-img-08.webp"
                         alt="client company image">
                   </a>
@@ -960,7 +961,7 @@
       <footer class="footer">
          <div class="footer__body body-footer">
             <div class="body-footer__container">
-               <div class="body-footer__logo logo-footer">
+               <div class="body-footer__logo logo-footer logo-footer--anim" data-delay="100">
                   <a href="#" class="logo-footer__icon">
                      <svg>
                         <use href="/src/assets/icons/symbol-defs.svg#icon-logo-tree"></use>
@@ -968,8 +969,8 @@
                   </a>
                   <img src="/src/assets/icons/logo-text.svg" alt="logo text" class="logo-footer__text">
                </div>
-               <div class="body-footer__menu menu-footer">
-                  <div class="menu-footer__column column-contacts">
+               <div class="body-footer__menu menu-footer menu-footer--anim">
+                  <div class="menu-footer__column column-contacts anim-child">
                      <h3 class="column-contacts__title title-footer">CONTACT US</h3>
                      <ul class="column-contacts__list">
                         <li class="column-contacts__item">
@@ -987,7 +988,7 @@
                         </li>
                      </ul>
                   </div>
-                  <div class="menu-footer__column column-about">
+                  <div class="menu-footer__column column-about anim-child">
                      <h3 class="column-about__title title-footer">ABOUT US</h3>
                      <ul class="column-about__list">
                         <li class="column-about__item">
@@ -1004,7 +1005,7 @@
                         </li>
                      </ul>
                   </div>
-                  <div class="menu-footer__column column-news">
+                  <div class="menu-footer__column column-news anim-child">
                      <h3 class="column-news__title title-footer">LASTEST NEWS</h3>
                      <ul class="column-news__list">
                         <li class="column-news__item">

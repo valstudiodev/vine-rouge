@@ -114,6 +114,15 @@
       display: flex;
       align-items: center;
       @include adaptiveValue('gap',30,15);
+      transition: opacity 0.8s ease,translate  0.8s ease-in-out;
+      opacity: 0;
+      translate: 0 20%;
+      will-change: translate, opacity;
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(950)) {
         align-items: flex-start;
@@ -259,6 +268,8 @@
       flex-wrap: wrap;
       @include adaptiveValue('gap',40,20);
 
+
+
       @media (max-width: toEm(854)) {
          justify-content: space-evenly;
       }
@@ -313,6 +324,7 @@
 .content-history {
    flex: 1 1 50%;
    z-index: 5;
+   @include zoomIn($duration: 1.6s,$origin: top left);
 
    @media (max-width: toEm(783)) {
       width: 100%;
@@ -327,19 +339,21 @@
          }
       }
    }
-
-   &__button {
-
-      @media (max-width: toEm(400)) {
-        width: 100%;
-      }
-   }
 }
 
 .image-history {
    position: relative;
    z-index: 1;
    flex: 1 1 50%;
+   opacity: 0;
+   scale: 0;
+   transition: scale 1.2s, scale 1.2s ease;
+   will-change: scale, opacity;
+
+   &.animate {
+      opacity: 1;
+      scale: 1;
+   }
 
    &::before {
      content: "";
@@ -366,6 +380,7 @@
       width: toRem(170);
       aspect-ratio: 1;
       pointer-events: none;
+      animation: slowRotate 60s linear infinite;
    }
 
    @media (max-width: toEm($mobile)) {
@@ -435,6 +450,7 @@
       @include adaptiveValue('gap',40,20);
       @include adaptiveValue('margin-bottom', 40, 20);
       z-index: 5;
+      transition: opacity 0.6s ease;
 
       @media (max-width: toEm(1339)) {
         justify-content: space-evenly;
@@ -454,6 +470,14 @@
       aspect-ratio: 1770 / 630;
       overflow: hidden;
       border-radius: toRem(10);
+      opacity: 0;
+      translate: toRem(0) toRem(20);
+      transition: opacity 1s ease, translate 1s ease;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(700)) {
         margin-inline: toRem(-15);
@@ -483,6 +507,14 @@
    flex: 0 1 toRem(410);
    @include transition;
    will-change: scale,translate,opacity;
+   transition: opacity 0.6s ease, translate 0.6s ease;
+   opacity: 0;
+   translate: toRem(0) toRem(10);
+
+   &.animate {
+      opacity: 1;
+      translate: 0 0;
+   }
 
    &::after,
    &::before {
@@ -543,11 +575,6 @@
          width: percent(127,410);
          height: percent(226,270);
       }
-   }
-
-   @include hover {
-     scale: 1.01;
-     translate: toRem(0) toRem(-3);
    }
 
    // .item-advantages__content
@@ -616,6 +643,7 @@
         width: toRem(173);
         aspect-ratio: 1;
         pointer-events: none;
+        animation: slowRotate 60s linear infinite;
       }
 
       @media (max-width: toEm($mobile)) {
@@ -629,6 +657,15 @@
    &__container {
       position: relative;
       max-width: toRem(1700) !important;
+      opacity: 0;
+      translate: 0 toRem(50);
+      transition: scale 1s ease,translate 1s ease-in-out;
+      will-change: scale,translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       &::before {
         @include pseudo;
@@ -711,6 +748,7 @@
       display: flex;
       align-items: center;
       @include adaptiveValue('column-gap', 60, 20);
+      @include zoomIn($duration:1.5s,$origin:top right);
 
       .button-arrow {
          @media (max-width: toEm($mobile)) {
@@ -821,6 +859,15 @@
    // .auroma__header
    &__header {
       @include adaptiveValue('margin-bottom', 111, 30);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 1s ease, translate 1s ease;
+      will-change: opacity,translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 }
 
@@ -841,7 +888,15 @@
       border-radius: toRem(10);
       overflow: hidden;
       background-color: rgba(108, 65, 0, 0.3);
-      // flex-shrink: 0;
+      opacity: 0;
+      translate: 0 toRem(10);
+      transition: opacity 0.8s ease, translate 0.8s ease;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 }
 
@@ -875,7 +930,14 @@
 
    // .history-auroma__header
    &__header {
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 1s ease,translate 1s ease;
 
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
       @media (max-width: toEm(899)) {
          align-items: center !important;
          .header-block__text {
@@ -912,6 +974,14 @@
       aspect-ratio: 1770 / 630;
       overflow: hidden;
       border-radius: toRem(10);
+      opacity: 0;
+      translate: toRem(0) toRem(20);
+      transition: opacity 1s ease, translate 1s ease;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(700)) {
          margin-inline: toRem(-15);
@@ -932,6 +1002,7 @@
    position: absolute;
    bottom: toRem(40);
    left: toRem(41);
+   z-index: 5;
    // .signature__title
    &__title {
       @include adaptiveValue('font-size', 24, 18);
@@ -959,6 +1030,15 @@
    // .employees__header
    &__header {
       @include adaptiveValue('margin-bottom', 71, 30);
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 1s ease, translate 1s ease;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 
    // .employees__items
@@ -994,11 +1074,29 @@
    &__image {
       aspect-ratio: 662 / 566;
       flex: 1 1 50%;
+      opacity: 0;
+      scale: 0;
+      transition: opacity 1.2s ease, scale 1.2s ease;
+      will-change: opacity, scale;
+
+      &.animate {
+         opacity: 1;
+         scale: 1;
+      }
    }
 }
 
 .content-info {
    flex: 1 1 50%;
+   opacity: 0;
+   translate: 0 toRem(60);
+   transition: opacity 1.5s ease, translate 1.5s ease;
+   will-change: opacity, translate;
+
+   &.animate {
+      opacity: 1;
+      translate: 0 0;
+   }
 
    &__header {
       @include adaptiveValue('margin-bottom', 70, 25);
@@ -1057,6 +1155,15 @@
       @include adaptiveValue('margin-bottom', 137, 40);
       align-items: center;
       text-align: center;
+      opacity: 0;
+      translate: 0 toRem(30);
+      transition: opacity 1s ease, translate 1s ease;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 }
 
@@ -1076,7 +1183,17 @@
    }
 
    // .body-events__item
-   &__item {}
+   &__item {
+      opacity: 0;
+      translate: 0 toRem(-20);
+      transition: opacity 1s ease, translate 1s ease;
+      will-change: opacity, translate;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+   }
 
    // .body-events__image
    &__image {
@@ -1084,6 +1201,7 @@
       flex: 1 1 37.361111%;
       overflow: hidden;
       border-radius: toRem(11);
+      @include reveal;
 
       &::before {
         @include pseudo;
@@ -1136,6 +1254,7 @@
    border-radius: toRem(10);
    @include adaptiveValue('padding-block', 68, 30);
    padding-inline: toRem(15);
+   @include reveal((0,100px),1.2s);
 
    &::before {
      content: "";
@@ -1217,6 +1336,8 @@
    // .client__header
    &__header {
       @include adaptiveValue('margin-bottom', 85, 40);
+      @include reveal;
+
       .header-block__title {
          text-align: center;
       }
@@ -1238,6 +1359,7 @@
       margin: toRem(0) toRem(-1) toRem(-1) toRem(0);
       transition: scale 0.4s ease;
       will-change: scale;
+      @include reveal((toRem(-10),0),0.6s);
 
 
       @include hover {
@@ -1262,7 +1384,12 @@
    }
 }
 
-
+.overlay {
+   z-index: 2;
+   @media (max-width: toEm(700)) {
+      @include overlay-gradient($opacity-start:0.5,$opacity-end: 0.3);
+   }
+}
 
 
 
