@@ -115,14 +115,12 @@
       @include adaptiveValue('gap',30,15);
       transition: opacity 0.8s ease,translate  0.8s ease-in-out;
       opacity: 0;
-      translate: 0 10%;
-      will-change: translate, opacity;
+      will-change: opacity;
       height: 100svh;
       width: 100%;
 
       [init-page-loader="ready"] & {
          opacity: 1;
-         translate: 0 0;
       }
 
       @media (max-width: toEm(950)) {
