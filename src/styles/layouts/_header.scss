@@ -23,9 +23,6 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      transition: background-color 0.3s ease-in-out;
-      @include adaptive-clamp("padding-top", 25, 15);
-         @include adaptive-clamp("padding-bottom", 25, 15);
    }
 
    &.scrolled {
@@ -60,7 +57,6 @@
       overflow: hidden;
    }
 }
-
 .menu-header {
 
    @media (max-width: toEm(977)) {
@@ -69,12 +65,11 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: 70%;
+      width: 100%;
       height: 100%;
       background-color: $borderColor ;
       padding: toRem(140) toRem(15) toRem(30) toRem(15);
       transition: all 0.3s;
-      opacity: 0.95;
 
       .menu-open & {
          right: 0;
@@ -144,7 +139,6 @@
       }
    }
 }
-
 .logo {
    display: flex;
    align-items: center;
@@ -179,7 +173,6 @@
       }
    }
 }
-
 .actions-header {
    display: flex;
    align-items: center;

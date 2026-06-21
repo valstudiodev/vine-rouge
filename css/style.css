@@ -124,10 +124,6 @@ cite {
   width: 100%;
   height: 100%;
   z-index: -1;
-  -webkit-transition: background-color 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-  padding-top: clamp(15px, 15px + 10 * (100vw - 320px) / (1440 - 320), 25px);
-  padding-bottom: clamp(15px, 15px + 10 * (100vw - 320px) / (1440 - 320), 25px);
 }
 .header.scrolled::before {
   background-color: rgba(245, 235, 218, 0.7);

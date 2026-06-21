@@ -11,7 +11,7 @@
    // .page__hero
    &__hero {
       // display: none;
-      @include adaptiveValue('padding-top', 200, 180);
+      @include adaptiveValue('padding-top', 100, 150);
       @include adaptiveValue('padding-bottom', 80, 40);
    }
 
@@ -84,7 +84,6 @@
       @include adaptiveValue('padding-block', 70, 30);
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // hero
@@ -100,7 +99,7 @@
      left: 0;
      background: url("/src/assets/img/decors/bg-img.webp") 0 0 / 100% no-repeat;
      width: 100%;
-     height: 30%;
+     height: 100svh;
    }
 
    @media (max-width: toEm(874)) {
@@ -116,8 +115,10 @@
       @include adaptiveValue('gap',30,15);
       transition: opacity 0.8s ease,translate  0.8s ease-in-out;
       opacity: 0;
-      translate: 0 20%;
+      translate: 0 10%;
       will-change: translate, opacity;
+      height: 100svh;
+      width: 100%;
 
       [init-page-loader="ready"] & {
          opacity: 1;
@@ -159,7 +160,6 @@
       }
    }
 }
-
 .content-hero {
    flex: 1 1 50%;
    display: flex;
@@ -253,7 +253,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // navigation
@@ -268,8 +267,6 @@
       flex-wrap: wrap;
       @include adaptiveValue('gap',40,20);
 
-
-
       @media (max-width: toEm(854)) {
          justify-content: space-evenly;
       }
@@ -280,7 +277,6 @@
 
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // history
@@ -320,11 +316,10 @@
       }
    }
 }
-
 .content-history {
    flex: 1 1 50%;
    z-index: 5;
-   @include zoomIn($duration: 1.6s,$origin: top left);
+   @include reveal;
 
    @media (max-width: toEm(783)) {
       width: 100%;
@@ -340,19 +335,18 @@
       }
    }
 }
-
 .image-history {
    position: relative;
    z-index: 1;
    flex: 1 1 50%;
    opacity: 0;
-   scale: 0;
-   transition: scale 1.2s, scale 1.2s ease;
-   will-change: scale, opacity;
+   translate: 0 toRem(30);
+   transition:  opacity 1s ease, translate 1s;
+   will-change: translate, opacity;
 
    &.animate {
       opacity: 1;
-      scale: 1;
+      translate: 0 0;
    }
 
    &::before {
@@ -429,7 +423,6 @@
      }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // advantages
@@ -493,7 +486,6 @@
       }
    }
 }
-
 .item-advantages {
    position: relative;
    display: flex;
@@ -623,7 +615,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // spirits
@@ -718,7 +709,6 @@
       justify-content: center;
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // reviews
@@ -748,7 +738,7 @@
       display: flex;
       align-items: center;
       @include adaptiveValue('column-gap', 60, 20);
-      @include zoomIn($duration:1.5s,$origin:top right);
+      @include reveal;
 
       .button-arrow {
          @media (max-width: toEm($mobile)) {
@@ -757,7 +747,6 @@
       }
    }
 }
-
 .slider-review {
    display: flex;
    align-items: center;
@@ -789,8 +778,6 @@
       }
    }
 }
-
-// ===========================================================================================
 // -----------------------------
 // auroma
 // -----------------------------
@@ -870,7 +857,6 @@
       }
    }
 }
-
 .gallery-grid {
    display: grid;
    grid-template-columns: repeat(auto-fill,minmax(min(toRem(350),100%),1fr));
@@ -899,7 +885,6 @@
       }
    }
 }
-
 .history-auroma {
    display: grid;
    grid-template-columns: 1fr auto;
@@ -946,7 +931,6 @@
       }
    }
 }
-
 .img-advantages {
 
    // .img-advantages__icon
@@ -956,7 +940,6 @@
       &--wine {}
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // banner
@@ -997,7 +980,6 @@
       }
    }
 }
-
 .signature {
    position: absolute;
    bottom: toRem(40);
@@ -1049,7 +1031,6 @@
       @include adaptiveValue('row-gap', 30, 20);
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // info
@@ -1075,17 +1056,16 @@
       aspect-ratio: 662 / 566;
       flex: 1 1 50%;
       opacity: 0;
-      scale: 0;
+      // scale: 0.8;
       transition: opacity 1.2s ease, scale 1.2s ease;
       will-change: opacity, scale;
 
       &.animate {
          opacity: 1;
-         scale: 1;
+        //  scale: 1;
       }
    }
 }
-
 .content-info {
    flex: 1 1 50%;
    opacity: 0;
@@ -1138,7 +1118,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // events
@@ -1166,7 +1145,6 @@
       }
    }
 }
-
 .body-events {
    display: flex;
    @include adaptiveValue('gap',62,30);
@@ -1201,7 +1179,14 @@
       flex: 1 1 37.361111%;
       overflow: hidden;
       border-radius: toRem(11);
-      @include reveal;
+      // @include reveal;
+      opacity: 0;
+      transition: opacity 1s;
+      will-change: opacity;
+
+      &.animate {
+        opacity: 1;
+      }
 
       &::before {
         @include pseudo;
@@ -1228,7 +1213,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // form
@@ -1248,14 +1232,13 @@
      height: 100%;
    }
 }
-
 .form-subscribe {
    position: relative;
    background-color: $bglight;
    border-radius: toRem(10);
    @include adaptiveValue('padding-block', 68, 30);
    padding-inline: toRem(15);
-   @include reveal((0,100px),1.2s);
+   @include reveal((0,30px),0.8s);
    z-index: 5;
 
    &::before {
@@ -1297,7 +1280,6 @@
       max-width: toRem(790) !important;
    }
 }
-
 .form-active {
    display: flex;
    flex-direction: column;
@@ -1326,7 +1308,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // client
@@ -1386,7 +1367,6 @@
 
    }
 }
-
 .overlay {
    z-index: 2;
    @media (max-width: toEm(700)) {

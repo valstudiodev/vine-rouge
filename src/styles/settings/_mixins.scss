@@ -176,12 +176,4 @@ aspect-ratio: $aspect-ratio;
 }
 
 
-@mixin adaptive-clamp($property, $startSize, $minSize, $widthFrom: 1440, $widthTo: 320) {
-   $addSize: $startSize - $minSize;
 
-   // Формула для розрахунку гнучкого значення всередині clamp
-   // Це дозволяє значенню плавно змінюватися між заданими точками
-   #{$property}: clamp(#{$minSize + px},
-      calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / (#{$widthFrom} - #{$widthTo}))),
-      #{$startSize + px});
-}
