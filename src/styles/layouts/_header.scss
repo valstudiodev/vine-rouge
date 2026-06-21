@@ -189,6 +189,18 @@
       align-items: center;
       transition: background-color 0.3s;
 
+      &--icon-shop-cart {
+        position: relative;
+        span {
+          position: absolute;
+          top: 20%;
+          right: 10%;
+          transition: color 0.3s;
+          font-size: toRem(14);
+          color: $brandColor;
+        }
+      }
+
       &::before {
          font-size: toRem(24);
          color: $brandColor;
@@ -203,6 +215,11 @@
         background-color: $brownDark;
         &::before {
           color: $white;
+        }
+        &.actions-header__button--icon-shop-cart {
+          span {
+            color: $white;
+          }
         }
       }
    }

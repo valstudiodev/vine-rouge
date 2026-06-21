@@ -11,19 +11,19 @@ import { initLoadAnimation } from './appInit'
 // ГОЛОВНИЙ ЗАПУСК
 // -----------------------------
 function initApp() {
-   initInputMode()
-   initLoadAnimation()
-   initUtils()
-   // initDropdowns()
-   initEffects()
-   // movingElements()
-   // formUtils()
+  initInputMode()
+  initLoadAnimation()
+  initUtils()
+  // initDropdowns()
+  initEffects()
+  // movingElements()
+  formUtils()
 }
 
 if (document.readyState === 'loading') {
-   document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded', initApp);
 } else {
-   initApp();
+  initApp();
 }
 
 
